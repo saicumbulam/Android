@@ -1,0 +1,136 @@
+{
+    "logs": [
+        {
+            "outputFile": "C:\\Users\\saicumbulam\\AndroidStudioProjects\\android-CardView\\Application\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\saicumbulam\\AndroidStudioProjects\\android-CardView\\Application\\src\\main\\res\\values\\template-styles.xml",
+                    "from": {
+                        "startLines": "24,20,22,27,29,34",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "768,651,713,849,878,1075",
+                        "endLines": "24,20,22,27,32,39",
+                        "endColumns": "51,60,53,27,12,12",
+                        "endOffsets": "815,707,762,872,1069,1348"
+                    },
+                    "to": {
+                        "startLines": "39,55,56,57,58,62",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "1881,2664,2724,2777,2804,3000",
+                        "endLines": "39,55,56,57,61,67",
+                        "endColumns": "50,59,52,26,12,12",
+                        "endOffsets": "1927,2719,2772,2799,2995,3273"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\saicumbulam\\AndroidStudioProjects\\android-CardView\\Application\\src\\main\\res\\values\\strings.xml",
+                    "from": {
+                        "startLines": "17,25,24",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "646,1118,1054",
+                        "endLines": "23,25,24",
+                        "endColumns": "13,69,63",
+                        "endOffsets": "1049,1183,1113"
+                    },
+                    "to": {
+                        "startLines": "21,27,28",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "1110,1506,1576",
+                        "endLines": "26,27,28",
+                        "endColumns": "13,69,63",
+                        "endOffsets": "1501,1571,1635"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\saicumbulam\\AndroidStudioProjects\\android-CardView\\Application\\src\\main\\res\\values\\template-dimens.xml",
+                    "from": {
+                        "startLines": "28,24,23,22,21,20,29",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "959,880,836,791,748,706,1029",
+                        "endColumns": "69,42,43,44,42,41,67",
+                        "endOffsets": "1024,918,875,831,786,743,1092"
+                    },
+                    "to": {
+                        "startLines": "12,13,14,15,16,17,19",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "650,720,763,807,852,895,989",
+                        "endColumns": "69,42,43,44,42,41,67",
+                        "endOffsets": "715,758,802,847,890,932,1052"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\saicumbulam\\AndroidStudioProjects\\android-CardView\\Application\\src\\main\\res\\values\\colors.xml",
+                    "from": {
+                        "startLines": "17",
+                        "startColumns": "4",
+                        "startOffsets": "646",
+                        "endColumns": "61",
+                        "endOffsets": "703"
+                    },
+                    "to": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "116",
+                        "endColumns": "61",
+                        "endOffsets": "173"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\saicumbulam\\AndroidStudioProjects\\android-CardView\\Application\\src\\main\\res\\values\\dimens.xml",
+                    "from": {
+                        "startLines": "18,19,20",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "718,776,832",
+                        "endColumns": "57,55,51",
+                        "endOffsets": "771,827,879"
+                    },
+                    "to": {
+                        "startLines": "7,8,18",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "366,424,937",
+                        "endColumns": "57,55,51",
+                        "endOffsets": "419,475,984"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\saicumbulam\\AndroidStudioProjects\\android-CardView\\Application\\src\\main\\res\\values\\base-strings.xml",
+                    "from": {
+                        "startLines": "18,19",
+                        "startColumns": "4,4",
+                        "startOffsets": "647,700",
+                        "endLines": "18,28",
+                        "endColumns": "52,13",
+                        "endOffsets": "695,936"
+                    },
+                    "to": {
+                        "startLines": "20,29",
+                        "startColumns": "4,4",
+                        "startOffsets": "1057,1640",
+                        "endLines": "20,38",
+                        "endColumns": "52,13",
+                        "endOffsets": "1105,1876"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\saicumbulam\\.gradle\\caches\\transforms-2\\files-2.1\\4cd962d326b2e8391abc4ea187f24957\\res\\values\\values.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,7,8,9,10,17,19,22,6",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,116,178,240,989,1048,1105,1159,1573,1637,1763,304",
+                        "endLines": "2,3,4,5,7,8,9,16,18,21,24,6",
+                        "endColumns": "60,61,61,63,58,56,53,12,12,12,12,684",
+                        "endOffsets": "111,173,235,299,1043,1100,1154,1568,1632,1758,1886,984"
+                    },
+                    "to": {
+                        "startLines": "2,4,5,6,9,10,11,40,47,49,52,68",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,178,240,302,480,539,596,1932,2346,2410,2536,3278",
+                        "endLines": "2,4,5,6,9,10,11,46,48,51,54,68",
+                        "endColumns": "60,61,61,63,58,56,53,12,12,12,12,684",
+                        "endOffsets": "111,235,297,361,534,591,645,2341,2405,2531,2659,3958"
+                    }
+                }
+            ]
+        }
+    ]
+}

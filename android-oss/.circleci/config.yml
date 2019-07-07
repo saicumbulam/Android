@@ -1,0 +1,168 @@
+base_job: &base_job
+  resource_class: xlarge
+  docker:
+    - image: circleci/android:api-28-alpha
+  working_directory: '~/project'
+  environment:
+    TERM: dumb
+    ADB_INSTALL_TIMEOUT: 8
+    GRADLE_OPTS: '-Dorg.gradle.jvmargs="-Xmx512m -XX:+HeapDumpOnOutOfMemoryError"'
+
+version: 2
+jobs:
+  build:
+    <<: *base_job
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v5-android-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
+            - v5-android-
+      - run: make bootstrap-circle
+      - run: ./gradlew dependencies
+      - save_cache:
+          key: v5-android-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
+          paths:
+            - ~/.gradle
+            - ~/.android
+      - run: ./gradlew assembleExternalRelease
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - ./
+
+  test:
+    <<: *base_job
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v5-android-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
+            - v5-android-
+      - attach_workspace:
+          at: ~/project
+      - run: ./gradlew checkstyle
+      - run: ./gradlew lintExternalRelease
+      - run: ./gradlew testExternalRelease -PdisablePreDex
+      - store_artifacts:
+          path: app/build/reports
+          destination: reports
+      - store_artifacts:
+          path: app/build/outputs
+          destination: tests
+
+  create_alpha:
+    <<: *base_job
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v5-android-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
+            - v5-android-
+      - attach_workspace:
+          at: ~/project
+      - run:
+          name: push to alpha branch
+          command: make alpha
+
+  alpha:
+    <<: *base_job
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v5-android-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
+            - v5-android-
+      - restore_cache:
+          keys:
+            - v1-bundler-{{ checksum "Gemfile.lock" }}
+            - v1-bundler-
+      - run:
+          name: Bundle install
+          command: bundle check || bundle install --path vendor/bundle
+      - save_cache:
+          key: v1-bundler-{{ checksum "Gemfile.lock" }}
+          paths:
+            - ./vendor/bundle
+      - attach_workspace:
+          at: ~/project
+      - run:
+          name: Deploy Alpha to Crashlytics
+          command: bundle exec fastlane alpha
+
+  create_internal:
+    <<: *base_job
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v5-android-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
+            - v5-android-
+      - attach_workspace:
+          at: ~/project
+      - run:
+          name: push to internal branch
+          command: make internal
+
+  internal:
+    <<: *base_job
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v5-android-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
+            - v5-android-
+      - restore_cache:
+          keys:
+            - v1-bundler-{{ checksum "Gemfile.lock" }}
+            - v1-bundler-
+      - run:
+          name: Bundle install
+          command: bundle check || bundle install --path vendor/bundle
+      - save_cache:
+          key: v1-bundler-{{ checksum "Gemfile.lock" }}
+          paths:
+            - ./vendor/bundle
+      - attach_workspace:
+          at: ~/project
+      - run:
+          name: Deploy Internal to Crashlytics and S3
+          command: bundle exec fastlane internal
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
+      - alpha:
+          requires:
+            - build
+            - test
+          filters:
+            branches:
+              only: alpha
+      - create_internal:
+          requires:
+            - build
+            - test
+          filters:
+            branches:
+              only: master
+      - internal:
+          requires:
+            - build
+            - test
+          filters:
+            branches:
+              only: internal
+
+experimental:
+  notify:
+    branches:
+      only:
+        - master
+        - alpha
+        - internal

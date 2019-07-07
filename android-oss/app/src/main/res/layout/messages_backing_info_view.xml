@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  android:id="@+id/backing_info_view"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:background="@color/white"
+  android:orientation="vertical"
+  android:visibility="gone"
+  tools:showIn="@layout/messages_layout"
+  tools:visibility="visible">
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingBottom="@dimen/grid_1"
+    android:paddingEnd="@dimen/grid_3"
+    android:paddingStart="@dimen/grid_3"
+    android:paddingTop="@dimen/grid_1">
+
+    <TextView
+      android:id="@+id/backing_amount_text_view"
+      style="@style/FootnotePrimary"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      tools:text="$42 pledged on June 9, 2017" />
+
+    <Button
+      style="@style/AlternatePrimaryButton"
+      android:id="@+id/messages_view_pledge_button"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      tools:text="View pledge" />
+
+  </LinearLayout>
+
+  <include
+    layout="@layout/horizontal_line_0_5dp_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_scrollFlags="scroll|enterAlways" />
+
+</LinearLayout>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:background="@color/discovery_drawer_header"
+  android:baselineAligned="false"
+  android:orientation="vertical">
+
+  <TextView
+    android:id="@+id/logged_out_text_view"
+    style="@style/DrawerTextView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:drawableStart="@drawable/ic_face"
+    android:foreground="@drawable/click_indicator_light"
+    android:paddingBottom="@dimen/grid_3"
+    android:paddingTop="@dimen/grid_3"
+    android:text="@string/discovery_onboarding_buttons_signup_or_login" />
+
+  <include layout="@layout/horizontal_line_1dp_view" />
+
+  <include layout="@layout/internal_tools_button_view" />
+
+  <TextView
+    android:id="@+id/drawer_activity"
+    style="@style/DrawerTextView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:drawableStart="@drawable/icon__bolt"
+    android:text="@string/tabbar_activity" />
+
+  <TextView
+    android:id="@+id/drawer_help"
+    style="@style/DrawerTextView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:drawableStart="@drawable/ic_help"
+    android:text="@string/Help" />
+
+</LinearLayout>

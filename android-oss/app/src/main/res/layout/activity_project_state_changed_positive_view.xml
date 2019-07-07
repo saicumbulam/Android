@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:card_view="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/card_view"
+  style="@style/ActivityFeedCard"
+  android:focusable="true"
+  card_view:cardBackgroundColor="@color/green_darken_10">
+
+  <ImageView
+    android:id="@+id/project_photo"
+    android:alpha="0.2"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/grid_41"
+    android:layout_margin="0dp"
+    android:cropToPadding="false"
+    android:scaleType="centerCrop"
+    android:adjustViewBounds="true"
+    tools:ignore="ContentDescription" />
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/grid_2"
+    android:orientation="vertical">
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:gravity="center"
+      android:layout_weight="1">
+
+      <TextView
+        style="@style/Title2Medium"
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:gravity="center"
+        tools:text="Project name was successfully funded!" />
+
+    </LinearLayout>
+
+    <LinearLayout
+      android:baselineAligned="false"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/grid_1"
+      android:orientation="horizontal">
+
+      <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+          style="@style/CalloutPrimaryMedium"
+          android:id="@+id/left_stat_first"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textColor="@color/white"
+          android:textStyle="bold"
+          tools:text="Left Stat First" />
+
+        <TextView
+          style="@style/CalloutPrimaryMedium"
+          android:id="@+id/left_stat_second"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textColor="@color/white"
+          tools:text="Left Stat Second" />
+
+      </LinearLayout>
+
+      <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="end"
+        android:orientation="vertical">
+
+        <TextView
+          style="@style/CalloutPrimaryMedium"
+          android:id="@+id/right_stat_first"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textColor="@color/white"
+          android:textStyle="bold"
+          tools:text="Right Stat First" />
+
+        <TextView
+          style="@style/CalloutPrimaryMedium"
+          android:id="@+id/right_stat_second"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textColor="@color/white"
+          tools:text="Right Stat Second" />
+      </LinearLayout>
+
+    </LinearLayout>
+
+  </LinearLayout>
+</androidx.cardview.widget.CardView>

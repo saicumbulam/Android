@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:gravity="center_horizontal"
+  android:layout_marginTop="@dimen/grid_4"
+  android:layout_marginBottom="@dimen/grid_2"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content">
+
+  <include layout="@layout/logo_call_to_action" />
+
+  <Button
+    android:id="@+id/login_tout_button"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/grid_5"
+    android:layout_marginRight="@dimen/grid_5"
+    android:layout_marginTop="@dimen/grid_4"
+    android:text="@string/discovery_onboarding_buttons_signup_or_login" />
+
+</LinearLayout>

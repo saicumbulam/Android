@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:card_view="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/friend_backing_card_view"
+  card_view:contentPadding="@dimen/grid_2"
+  android:focusable="true"
+  style="@style/ActivityFeedCard">
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+      android:orientation="horizontal"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+
+      <ImageView
+        android:id="@+id/project_photo"
+        android:background="@drawable/gray_gradient"
+        android:adjustViewBounds="true"
+        android:layout_width="@dimen/activity_feed_backing_photo_width"
+        android:layout_height="@dimen/activity_feed_backing_photo_height"
+        android:layout_marginTop="6dp"
+        android:scaleType="centerCrop"
+        tools:ignore="ContentDescription" />
+
+      <LinearLayout
+        android:orientation="vertical"
+        android:layout_marginLeft="@dimen/grid_2"
+        android:layout_marginEnd="@dimen/grid_2"
+        android:layout_marginRight="@dimen/grid_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+          style="@style/Headline"
+          android:id="@+id/project_name"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginBottom="@dimen/grid_1_half"
+          android:maxLines="3"
+          tools:text="Project name" />
+
+        <TextView
+          style="@style/Caption1Secondary"
+          android:id="@+id/creator_name"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginBottom="@dimen/grid_1_half"
+          android:maxLines="2"
+          tools:text="by Creator" />
+      </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+      android:layout_width="match_parent"
+      android:layout_height="1dp"
+      android:layout_marginTop="@dimen/grid_3"
+      android:layout_marginBottom="@dimen/grid_3"
+      android:background="@color/black_alpha_10" />
+
+    <LinearLayout
+      android:orientation="horizontal"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:gravity="center_vertical">
+
+      <ImageView
+        android:id="@+id/avatar"
+        android:adjustViewBounds="true"
+        android:layout_marginEnd="@dimen/grid_1"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        tools:ignore="ContentDescription"
+        tools:background="@color/ksr_cobalt_500"/>
+
+      <TextView
+        style="@style/Caption1Primary"
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/grid_1"
+        tools:text="Friend Name backed a Category project" />
+
+    </LinearLayout>
+
+  </LinearLayout>
+
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/reward_view"
+  android:focusable="true"
+  android:layout_marginTop="@dimen/grid_1"
+  android:layout_marginStart="@dimen/project_padding_x"
+  android:layout_marginEnd="@dimen/project_padding_x"
+  android:layout_marginBottom="@dimen/grid_2"
+  android:layout_height="wrap_content"
+  android:layout_width="match_parent"
+  app:cardBackgroundColor="@color/white"
+  app:cardCornerRadius="@dimen/card_corner_radius"
+  app:cardElevation="@dimen/card_no_elevation"
+  app:cardPreventCornerOverlap="false">
+
+  <FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/grid_2"
+      android:foreground="@drawable/click_indicator_light"
+      android:background="@drawable/rect_white_dark_grey_stroke"
+      android:orientation="vertical"
+      android:padding="@dimen/grid_2">
+
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+          android:id="@+id/reward_minimum_text_view"
+          style="@style/Title3"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="@dimen/grid_2"
+          android:textColor="@color/ksr_green_700"
+          android:textSize="@dimen/headline"
+          tools:text="$20 AUD" />
+
+        <TextView
+          android:id="@+id/reward_preferred_conversion_text_view"
+          style="@style/Caption1Secondary"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          tools:text="About $15 USD" />
+
+      </LinearLayout>
+
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/grid_3">
+
+        <TextView
+          style="@style/RewardHeadline"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/backer_modal_reward_title" />
+
+        <TextView
+          android:id="@+id/reward_title_text_view"
+          style="@style/Headline"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:maxLines="2"
+          android:paddingTop="@dimen/grid_1"
+          tools:text="Digital bundle" />
+
+        <TextView
+          android:id="@+id/reward_description_text_view"
+          style="@style/BodyPrimary"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:paddingTop="@dimen/grid_2"
+          tools:text="You'll receive a download link to the project, free of DRM!" />
+
+      </LinearLayout>
+
+      <LinearLayout
+        android:id="@+id/reward_rewards_item_section"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/grid_4">
+
+        <TextView
+          style="@style/RewardHeadline"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/rewards_info_includes" />
+
+        <androidx.recyclerview.widget.RecyclerView
+          android:id="@+id/reward_rewards_item_recycler_view"
+          android:paddingTop="@dimen/grid_1"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content" />
+
+      </LinearLayout>
+
+      <include layout="@layout/reward_delivery_view" />
+
+      <LinearLayout
+        android:id="@+id/limit_and_backers_section"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="bottom"
+        android:paddingTop="@dimen/grid_2">
+
+        <TextView
+          android:id="@+id/reward_all_gone_text_view"
+          style="@style/Headline"
+          android:fontFamily="@string/font_family_sans_serif"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:text="@string/rewards_info_all_gone"
+          tools:visibility="gone"/>
+
+        <TextView
+          android:id="@+id/reward_limit_and_remaining_text_view"
+          style="@style/BodyPrimary"
+          android:gravity="bottom"
+          android:fontFamily="@string/font_family_sans_serif"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="2"
+          android:textColor="@color/ksr_orange"
+          tools:text="Limited (20 left of 30)" />
+
+        <TextView
+          android:id="@+id/reward_backers_text_view"
+          android:gravity="end"
+          style="@style/Headline"
+          android:fontFamily="@string/font_family_sans_serif"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          tools:text="25 backers" />
+
+      </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+      android:id="@+id/reward_selected_header"
+      android:gravity="center_vertical"
+      android:paddingStart="@dimen/grid_2"
+      android:paddingEnd="@dimen/grid_2"
+      android:layout_width="match_parent"
+      android:layout_height="@dimen/grid_5"
+      android:visibility="gone"
+      tools:visibility="visible">
+
+      <TextView
+        style="@style/Caption1SecondaryMedium"
+        android:background="@drawable/rect_white_dark_grey_stroke"
+        android:textColor="@color/ksr_soft_black"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:paddingStart="@dimen/grid_2"
+        android:paddingEnd="@dimen/grid_2"
+        android:text="@string/rewards_selected_label_you_selected" />
+
+    </LinearLayout>
+
+    <View
+      android:id="@+id/reward_white_overlay_view"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:alpha="0.6"
+      android:background="@color/white"
+      android:visibility="invisible" />
+
+  </FrameLayout>
+
+</androidx.cardview.widget.CardView>

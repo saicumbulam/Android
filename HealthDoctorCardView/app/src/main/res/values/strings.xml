@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">HealthDoctorCardView</string>
+    <string name="action_share">SHARE</string>
+    <string name="action_explore">EXPLORE</string>
+    <string name="card_title">card title</string>
+    <string name="card_content">card content</string>
+</resources>

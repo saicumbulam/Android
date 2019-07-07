@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:orientation="vertical"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:layout_margin="@dimen/grid_4">
+
+  <LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+      style="@style/CalloutPrimaryMedium"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/grid_1"
+      android:layout_marginBottom="@dimen/grid_1"
+      android:text="@string/Build" />
+
+    <TextView
+      style="@style/BodyPrimary"
+      android:id="@+id/build"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      tools:text="201506261815" />
+
+    <TextView
+      style="@style/CalloutPrimaryMedium"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/grid_4"
+      android:layout_marginBottom="@dimen/grid_1"
+      android:text="@string/Changelog" />
+
+    <TextView
+      style="@style/BodyPrimary"
+      android:id="@+id/changelog"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      tools:text="The changelog" />
+
+    <TextView
+      style="@style/CalloutPrimaryMedium"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/grid_4"
+      android:layout_marginBottom="@dimen/grid_1"
+      android:text="@string/Instructions" />
+
+    <TextView
+      style="@style/BodyPrimary"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/A_request_has_been_made_to_download_the_latest_build" />
+
+    <Button
+      android:id="@+id/open_downloads_button"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/grid_4"
+      android:layout_gravity="center_horizontal"
+      android:paddingTop="@dimen/grid_2"
+      android:paddingBottom="@dimen/grid_2"
+      android:text="@string/Open_downloads_folder" />
+
+  </LinearLayout>
+
+</ScrollView>

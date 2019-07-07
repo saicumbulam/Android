@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  tools:showIn="@layout/comment_dialog"
+  app:contentInsetLeft="0dp"
+  app:contentInsetStart="0dp"
+  android:background="@color/white"
+  android:layout_width="match_parent"
+  android:layout_height="?attr/actionBarSize">
+
+  <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+      android:id="@+id/cancel_button"
+      android:focusable="true"
+      android:clickable="true"
+      android:background="@drawable/click_indicator_light_masked"
+      android:paddingStart="@dimen/grid_4"
+      android:paddingEnd="@dimen/grid_4"
+      android:gravity="center"
+      android:layout_width="wrap_content"
+      android:layout_height="match_parent"
+      android:text="@string/social_buttons_cancel"/>
+
+    <RelativeLayout
+      android:layout_toEndOf="@id/cancel_button"
+      android:layout_toStartOf="@+id/post_button"
+      android:layout_centerVertical="true"
+      android:layout_centerHorizontal="true"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content">
+
+      <TextView
+        android:id="@+id/comment_label"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="@string/social_public_comment"/>
+
+      <TextView
+        android:id="@+id/comment_project_name"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/comment_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:ellipsize="end" />
+
+    </RelativeLayout>
+
+    <TextView
+      android:id="@+id/post_button"
+      android:focusable="true"
+      android:clickable="true"
+      android:background="@drawable/click_indicator_light_masked"
+      android:textColor="@color/green_enabled_gray_disabled_color"
+      android:textStyle="bold"
+      android:paddingEnd="@dimen/grid_4"
+      android:paddingStart="@dimen/grid_4"
+      android:gravity="center"
+      android:layout_alignParentEnd="true"
+      android:layout_width="wrap_content"
+      android:layout_height="match_parent"
+      android:enabled="false"
+      android:text="@string/social_buttons_post"/>
+
+  </RelativeLayout>
+
+</androidx.appcompat.widget.Toolbar>

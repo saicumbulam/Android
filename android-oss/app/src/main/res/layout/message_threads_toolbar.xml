@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.kickstarter.ui.toolbars.KSToolbar
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  style="@style/Toolbar"
+  android:background="@color/white"
+  android:id="@+id/message_threads_toolbar"
+  android:elevation="0dp"
+  app:contentInsetLeft="0dp"
+  app:contentInsetStart="0dp"
+  app:layout_collapseMode="pin"
+  app:layout_scrollFlags="enterAlways"
+  tools:showIn="@layout/message_threads_layout">
+
+  <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.kickstarter.ui.views.IconButton
+      android:id="@+id/back_button"
+      style="@style/ToolbarIconBackButton"/>
+
+    <LinearLayout
+      android:id="@+id/message_threads_collapsed_toolbar_title"
+      android:gravity="center"
+      android:layout_centerVertical="true"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+      <TextView
+        android:id="@+id/message_threads_collapsed_toolbar_mailbox_title"
+        style="@style/Subheadline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="@string/messages_navigation_inbox" />
+
+      <TextView
+        android:id="@+id/message_threads_toolbar_unread_count_text_view"
+        style="@style/FootnotePrimaryMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/grid_1"
+        android:layout_marginStart="@dimen/grid_1"
+        android:textColor="@color/ksr_green_500"
+        tools:text="(3)" />
+
+    </LinearLayout>
+
+  </RelativeLayout>
+
+</com.kickstarter.ui.toolbars.KSToolbar>

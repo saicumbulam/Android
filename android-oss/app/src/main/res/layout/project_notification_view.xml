@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:gravity="center_vertical"
+  android:orientation="horizontal"
+  android:padding="@dimen/activity_vertical_margin">
+
+  <TextView
+    android:id="@+id/project_name"
+    style="@style/TextPrimary"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="@dimen/activity_vertical_margin"
+    android:layout_weight="1"
+    tools:text="A Project With A Really Long Title: You Should Back It" />
+
+  <androidx.appcompat.widget.SwitchCompat
+    android:id="@+id/enabled_switch"
+    style="@style/EndSettingsWidget"
+    android:layout_height="wrap_content" />
+
+</LinearLayout>

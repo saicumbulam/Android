@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+  android:id="@+id/discovery_layout"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:nextFocusDown="@+id/recycler_view"
+  tools:context=".ui.activities.DiscoveryActivity">
+
+  <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+      <androidx.viewpager.widget.ViewPager
+        android:id="@+id/discovery_view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+      <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/discovery_sort_app_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          app:layout_scrollFlags="scroll|enterAlways">
+
+          <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <include
+              layout="@layout/discovery_toolbar"
+              android:layout_width="match_parent"
+              android:layout_height="?android:attr/actionBarSize" />
+
+            <com.kickstarter.ui.views.SortTabLayout
+              android:id="@+id/discovery_tab_layout"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              app:tabMode="scrollable"
+              app:tabSelectedTextColor="@color/primary"
+              app:tabTextColor="@color/ksr_soft_black" />
+
+          </LinearLayout>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+      </com.google.android.material.appbar.AppBarLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+  </RelativeLayout>
+
+  <com.google.android.material.navigation.NavigationView
+    android:id="@+id/discovery_navigation_view"
+    android:layout_width="304dp"
+    android:layout_height="match_parent"
+    android:layout_gravity="start"
+    android:background="@color/white"
+    android:fitsSystemWindows="false">
+
+    <androidx.recyclerview.widget.RecyclerView
+      android:id="@+id/discovery_drawer_recycler_view"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:scrollbars="vertical" />
+
+  </com.google.android.material.navigation.NavigationView>
+
+</androidx.drawerlayout.widget.DrawerLayout>

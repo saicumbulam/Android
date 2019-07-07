@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:orientation="vertical"
+  android:layout_marginStart="@dimen/feed_padding_x"
+  android:layout_marginEnd="@dimen/feed_padding_x"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content">
+
+  <LinearLayout
+    android:focusable="true"
+    android:layout_marginTop="@dimen/feed_padding_y"
+    android:layout_marginBottom="@dimen/feed_padding_y"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+      android:id="@+id/friend_image"
+      android:layout_marginEnd="@dimen/grid_4"
+      android:layout_width="@dimen/comments_feed_avatar_width"
+      android:layout_height="@dimen/comments_feed_avatar_height"
+      tools:background="@color/ksr_cobalt_500"
+      tools:ignore="ContentDescription" />
+
+    <TextView
+      android:id="@+id/friend_name"
+      style="@style/CalloutPrimaryMedium"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      tools:text="MyBest Friend"/>
+
+  </LinearLayout>
+
+  <include layout="@layout/horizontal_line_1dp_view" />
+
+</LinearLayout>

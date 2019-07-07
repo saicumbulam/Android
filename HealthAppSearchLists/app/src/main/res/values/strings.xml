@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Health App Search Lists</string>
+    <string name="doctors_near_you"><u>Doctors Near You</u></string>
+    <string name="specialities">All Specialities</string>
+</resources>

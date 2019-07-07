@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:card_view="http://schemas.android.com/apk/res-auto"
+  card_view:cardBackgroundColor="@color/white"
+  android:background="@color/white"
+  android:foreground="@color/transparent"
+  android:orientation="vertical"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:paddingTop="@dimen/grid_6"
+  android:paddingBottom="@dimen/grid_8"
+  android:gravity="center">
+
+  <com.kickstarter.ui.views.IconTextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:alpha="0.3"
+    android:text="@string/speaker_notes_icon"
+    android:textSize="@dimen/empty_feed_icon"
+    android:paddingBottom="@dimen/grid_1" />
+
+  <TextView
+    style="@style/Headline"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingTop="@dimen/grid_1"
+    android:paddingBottom="@dimen/grid_1"
+    android:text="@string/activity_empty_state_logged_out_title" />
+
+  <TextView
+    style="@style/BodySecondary"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingTop="@dimen/grid_1"
+    android:paddingBottom="@dimen/grid_2"
+    android:text="@string/activity_empty_state_logged_out_message"
+    android:gravity="center_horizontal"
+    android:paddingStart="@dimen/grid_8"
+    android:paddingEnd="@dimen/grid_8" />
+  
+  <Button
+    style="@style/BorderButton"
+    android:id="@+id/discover_projects_button"
+    android:text="@string/activity_empty_state_logged_out_button"
+    android:layout_marginTop="@dimen/grid_1" />
+
+  <Button
+    style="@style/BorderButton"
+    android:id="@+id/login_button"
+    android:background="@drawable/button_white_border_dark_gray"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/discovery_onboarding_buttons_signup_or_login"
+    android:layout_marginTop="@dimen/grid_1" />
+
+</LinearLayout>

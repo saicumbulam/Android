@@ -1,0 +1,105 @@
+<RelativeLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/project_metadata_view_group"
+  android:visibility="visible"
+  android:clipToPadding="false"
+  android:clipChildren="false"
+  android:layout_marginStart="@dimen/grid_2"
+  android:layout_marginEnd="@dimen/grid_5"
+  android:layout_gravity="bottom"
+  android:background="@drawable/rect_white_grey_stroke"
+  android:gravity="center_vertical"
+  android:layout_width="wrap_content"
+  android:layout_height="@dimen/metadata_label_height"
+  tools:showIn="@layout/project_card_view">
+
+  <LinearLayout
+    android:id="@+id/backing_group"
+    android:visibility="gone"
+    android:paddingStart="@dimen/grid_1"
+    android:paddingEnd="@dimen/grid_1"
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+      android:src="@drawable/icon__check"
+      android:tint="@color/white"
+      android:layout_gravity="center_vertical"
+      android:layout_marginEnd="@dimen/grid_1_half"
+      android:layout_width="wrap_content"
+      android:layout_height="match_parent"
+      android:contentDescription="@null" />
+
+    <TextView
+      style="@style/Caption1PrimaryMedium"
+      android:includeFontPadding="false"
+      android:layout_gravity="center_vertical"
+      android:textColor="@color/white"
+      android:text="@string/discovery_baseball_card_metadata_backer"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content" />
+
+  </LinearLayout>
+
+  <LinearLayout
+    android:id="@+id/saved_view_group"
+    android:visibility="gone"
+    android:orientation="horizontal"
+    android:paddingStart="0dp"
+    android:paddingEnd="@dimen/grid_1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+      android:id="@+id/heart_icon"
+      android:layout_height="match_parent"
+      android:layout_width="wrap_content"
+      android:focusable="true"
+      android:tint="@color/ksr_soft_black"
+      android:contentDescription="@string/Save_this_project"
+      android:src="@drawable/icon__heart" />
+
+    <TextView
+      android:text="@string/You_saved_this_project"
+      android:includeFontPadding="false"
+      style="@style/Caption1PrimaryMedium"
+      android:layout_gravity="center_vertical"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content" />
+
+  </LinearLayout>
+
+  <LinearLayout
+    android:id="@+id/featured_group"
+    android:orientation="horizontal"
+    android:visibility="gone"
+    android:paddingStart="@dimen/grid_1"
+    android:paddingEnd="@dimen/grid_1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <com.kickstarter.ui.views.IconTextView
+      app:iconType="ss_kickstarter"
+      android:textSize="@dimen/caption_1"
+      android:textColor="@color/text_primary"
+      android:gravity="center_vertical"
+      android:text="@string/kickstarter_icon"
+      android:paddingTop="3dp"
+      android:layout_marginEnd="@dimen/grid_1"
+      android:layout_width="wrap_content"
+      android:layout_height="match_parent" />
+
+    <TextView
+      android:id="@+id/featured"
+      android:includeFontPadding="false"
+      android:layout_width="wrap_content"
+      android:layout_height="match_parent"
+      android:gravity="center_vertical"
+      style="@style/Caption1PrimaryMedium" />
+
+  </LinearLayout>
+
+</RelativeLayout>
