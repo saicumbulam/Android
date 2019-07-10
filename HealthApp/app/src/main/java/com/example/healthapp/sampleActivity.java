@@ -1,6 +1,8 @@
 package com.example.healthapp;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -21,9 +23,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
+import android.widget.TextView;
 
 public class sampleActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private TextView email;
+    private TextView username;
+    NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,12 +47,31 @@ public class sampleActivity extends AppCompatActivity
             }
         });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view_main);
+        navigationView = findViewById(R.id.nav_view_main);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+        NavBarModify();
+    }
+
+    private void NavBarModify() {
+        SharedPreferences sharedPreferences = this.getSharedPreferences("com.example.healthapp",
+                Context.MODE_PRIVATE);
+
+        String usernameProvided = sharedPreferences.getString("username","");
+        String emailProvided = sharedPreferences.getString("email","");
+
+        if (!emailProvided.equals("") && !usernameProvided.equals(""))  {
+            View headerView =  navigationView.getHeaderView(0);
+            this.username = headerView.findViewById(R.id.nav_header_title);
+            this.email = headerView.findViewById(R.id.nav_header_subtitle);
+
+            this.username.setText(usernameProvided);
+            this.email.setText(emailProvided);
+        }
+
     }
 
     @Override

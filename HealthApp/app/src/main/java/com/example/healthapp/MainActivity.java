@@ -1,6 +1,10 @@
 package com.example.healthapp;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -18,9 +22,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
-import android.widget.EditText;
-import android.widget.SearchView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -30,6 +33,8 @@ public class MainActivity extends AppCompatActivity
     DrawerLayout drawer;
     NavigationView navigationView;
     Toolbar toolbar = null;
+    private TextView email;
+    private TextView username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,9 +64,48 @@ public class MainActivity extends AppCompatActivity
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-        navigationView.setNavigationItemSelectedListener(this);
         searchView = findViewById(R.id.doctorSearch);
+        navigationView.setNavigationItemSelectedListener(this);
+        NavBarModify();
+    }
 
+    private void NavBarModify() {
+        SharedPreferences sharedPreferences = this.getSharedPreferences("com.example.healthapp",
+                Context.MODE_PRIVATE);
+
+        String usernameProvided = sharedPreferences.getString("username","");
+        String emailProvided = sharedPreferences.getString("email","");
+
+        if (emailProvided.equals("") && usernameProvided.equals(""))  {
+            CreateAlert();
+        } else {
+            View headerView =  navigationView.getHeaderView(0);
+            this.username = headerView.findViewById(R.id.nav_header_title);
+            this.email = headerView.findViewById(R.id.nav_header_subtitle);
+
+            this.username.setText(usernameProvided);
+            this.email.setText(emailProvided);
+        }
+
+    }
+
+    private void CreateAlert() {
+        // setup the alert builder
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Account is not created");
+        builder.setMessage("Would you like to create your account now ?");
+        // add the buttons
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent l = new Intent(MainActivity.this, RegisterActivity.class);
+                startActivity(l);
+            }
+        });
+        builder.setNegativeButton("Cancel", null);
+        // create and show the alert dialog
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
     @Override
@@ -90,6 +134,10 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Toast.makeText(getApplicationContext(),
+                    "Settings pressed ", Toast.LENGTH_LONG).show();
+            Intent s = new Intent(MainActivity.this, SettingsActivity.class);
+            startActivity(s);
             return true;
         }
 

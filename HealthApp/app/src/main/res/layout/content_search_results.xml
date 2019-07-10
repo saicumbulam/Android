@@ -41,7 +41,8 @@
             android:text="@string/doctors_near_you"
             android:textColor="#252525"
             android:textSize="16dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:onClick="taketoNearMeActivity"/>
 
         <TextView
             android:layout_width="match_parent"
