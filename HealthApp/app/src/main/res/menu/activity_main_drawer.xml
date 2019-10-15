@@ -3,21 +3,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <group android:checkableBehavior="single"/>
+    <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_home_black_24dp"
             android:title="@string/menu_home" />
-        <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
-        <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
-        <item
-            android:id="@+id/nav_login"
-            android:icon="@drawable/ic_account_circle_black_24dp"
-            android:title="@string/menu_login"/>
+    </group>
+
+    <item android:title="Doctor">
+        <menu>
+            <item android:id="@+id/nav_doctor"
+                android:icon="@drawable/doctor_search"
+                android:title="Search Doctor"/>
+            <item android:id="@+id/nav_appointment"
+                android:icon="@drawable/doctor_appointment"
+                android:title="Appointment"/>
+        </menu>
+    </item>
+
+    <item android:title="Pharmacy">
+        <menu>
+            <item android:id="@+id/nav_pharmacy"
+                android:icon="@drawable/pharmacy_search"
+                android:title="Search Pharmacy"/>
+            <item android:id="@+id/nav_deals"
+                android:icon="@drawable/pharmacy_deals"
+                android:title="Deals"/>
+        </menu>
+    </item>
+
+    <item android:title="Personalize">
+        <menu>
+            <item
+                android:id="@+id/nav_login"
+                android:icon="@drawable/ic_account_circle_black_24dp"
+                android:title="@string/menu_login"/>
+        </menu>
+    </item>
 </menu>

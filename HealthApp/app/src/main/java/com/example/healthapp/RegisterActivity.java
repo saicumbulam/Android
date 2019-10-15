@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -28,8 +29,10 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     public void taketoLoginActivity(View view) {
-        Intent l = new Intent(RegisterActivity.this, LoginActivity.class);
-        startActivity(l);
+//        Intent l = new Intent(RegisterActivity.this, LoginActivity.class);
+//        startActivity(l);
+        Toast.makeText(getApplicationContext(), "Feature will be added in future",
+                Toast.LENGTH_LONG).show();
     }
 
     public void SaveUserDetails(View view) {

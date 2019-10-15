@@ -30,11 +30,16 @@ public class MainActivity extends AppCompatActivity
 
     private String LOG_TAG = MainActivity.class.getSimpleName();
     private TextView searchView;
+
     DrawerLayout drawer;
     NavigationView navigationView;
     Toolbar toolbar = null;
+
     private TextView email;
     private TextView username;
+
+    private String usernameProvided;
+    private String emailProvided;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,8 +78,8 @@ public class MainActivity extends AppCompatActivity
         SharedPreferences sharedPreferences = this.getSharedPreferences("com.example.healthapp",
                 Context.MODE_PRIVATE);
 
-        String usernameProvided = sharedPreferences.getString("username","");
-        String emailProvided = sharedPreferences.getString("email","");
+        this.usernameProvided = sharedPreferences.getString("username","");
+        this.emailProvided = sharedPreferences.getString("email","");
 
         if (emailProvided.equals("") && usernameProvided.equals(""))  {
             CreateAlert();
@@ -134,8 +139,6 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            Toast.makeText(getApplicationContext(),
-                    "Settings pressed ", Toast.LENGTH_LONG).show();
             Intent s = new Intent(MainActivity.this, SettingsActivity.class);
             startActivity(s);
             return true;
@@ -155,15 +158,41 @@ public class MainActivity extends AppCompatActivity
                 startActivity(h);
                 break;
 
-            case R.id.nav_gallery:
-                Intent g = new Intent(MainActivity.this, sampleActivity.class);
-                startActivity(g);
+
+            case R.id.nav_doctor:
+                Intent d = new Intent(MainActivity.this, SearchResultsActivity.class);
+                d.putExtra("message", "Doctor");
+                startActivity(d);
+                break;
+
+            case R.id.nav_appointment:
+                Intent a = new Intent(MainActivity.this, AppointmentActivity.class);
+                startActivity(a);
+                break;
+
+
+            case R.id.nav_pharmacy:
+                Intent p = new Intent(MainActivity.this, SearchResultsActivity.class);
+                p.putExtra("message", "Pharmacy");
+                startActivity(p);
+                break;
+
+            case R.id.nav_deals:
+                Intent m = new Intent(MainActivity.this, DealActivity.class);
+                startActivity(m);
                 break;
 
             case R.id.nav_login:
-                Intent l = new Intent(MainActivity.this, LoginActivity.class);
-                startActivity(l);
+                if (!usernameProvided.equals("") && !emailProvided.equals("")) {
+                    Intent l = new Intent(MainActivity.this, AccountActivity.class);
+                    startActivity(l);
+
+                } else {
+                    Intent l = new Intent(MainActivity.this, RegisterActivity.class);
+                    startActivity(l);
+                }
                 break;
+
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -190,6 +219,12 @@ public class MainActivity extends AppCompatActivity
         Log.d(LOG_TAG, "Button clicked!");
         Intent s = new Intent(MainActivity.this, SearchResultsActivity.class);
         s.putExtra("message", "Pharmacy");
+        startActivity(s);
+    }
+
+    public void takeToFindResultsActivity(View view) {
+        Log.d(LOG_TAG, "Find button clicked!");
+        Intent s = new Intent(MainActivity.this, FindResultsActivity.class);
         startActivity(s);
     }
 }

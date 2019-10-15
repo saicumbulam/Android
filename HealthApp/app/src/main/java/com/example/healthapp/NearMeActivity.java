@@ -3,9 +3,11 @@ package com.example.healthapp;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -24,10 +26,10 @@ import java.util.List;
 
 public class NearMeActivity extends AppCompatActivity implements OnMapReadyCallback {
     private GoogleMap mMap;
-    public static final String[]titles =new String[]{"Doc1","Doc2","Doc2"};
-    public static final String[]subtitle=new String[]{"General Physician",
+    private String[]titles =new String[]{"Doc1","Doc2","Doc2"};
+    private String[]subtitle=new String[]{"General Physician",
             "General Physician","Psychiatrist"};
-    public static final Integer[] images = { R.drawable.one,
+    private Integer[] images = { R.drawable.one,
             R.drawable.one, R.drawable.one };
 
     @Override
@@ -38,7 +40,13 @@ public class NearMeActivity extends AppCompatActivity implements OnMapReadyCallb
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
-
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent n = new Intent(NearMeActivity.this, MainActivity.class);
+                startActivity(n);
+            }
+        });
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);

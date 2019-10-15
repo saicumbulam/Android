@@ -37,7 +37,8 @@ public class SearchResultsActivity extends AppCompatActivity
     private TextView email;
     private TextView username;
     NavigationView navigationView;
-
+    private String usernameProvided;
+    private String emailProvided;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,8 +51,8 @@ public class SearchResultsActivity extends AppCompatActivity
         SharedPreferences sharedPreferences = this.getSharedPreferences("com.example.healthapp",
                 Context.MODE_PRIVATE);
 
-        String usernameProvided = sharedPreferences.getString("username","");
-        String emailProvided = sharedPreferences.getString("email","");
+        usernameProvided = sharedPreferences.getString("username","");
+        emailProvided = sharedPreferences.getString("email","");
 
         if (!emailProvided.equals("") && !usernameProvided.equals(""))  {
             View headerView =  navigationView.getHeaderView(0);
@@ -180,14 +181,39 @@ public class SearchResultsActivity extends AppCompatActivity
                 startActivity(h);
                 break;
 
-            case R.id.nav_gallery:
-                Intent g = new Intent(SearchResultsActivity.this, sampleActivity.class);
-                startActivity(g);
+
+            case R.id.nav_doctor:
+                Intent d = new Intent(SearchResultsActivity.this, SearchResultsActivity.class);
+                d.putExtra("message", "Doctor");
+                startActivity(d);
+                break;
+
+            case R.id.nav_appointment:
+                Intent a = new Intent(SearchResultsActivity.this, AppointmentActivity.class);
+                startActivity(a);
+                break;
+
+
+            case R.id.nav_pharmacy:
+                Intent p = new Intent(SearchResultsActivity.this, SearchResultsActivity.class);
+                p.putExtra("message", "Pharmacy");
+                startActivity(p);
+                break;
+
+            case R.id.nav_deals:
+                Intent m = new Intent(SearchResultsActivity.this, DealActivity.class);
+                startActivity(m);
                 break;
 
             case R.id.nav_login:
-                Intent l = new Intent(SearchResultsActivity.this, LoginActivity.class);
-                startActivity(l);
+                if (!usernameProvided.equals("") && !emailProvided.equals("")) {
+                    Intent l = new Intent(SearchResultsActivity.this, AccountActivity.class);
+                    startActivity(l);
+
+                } else {
+                    Intent l = new Intent(SearchResultsActivity.this, RegisterActivity.class);
+                    startActivity(l);
+                }
                 break;
 
         }

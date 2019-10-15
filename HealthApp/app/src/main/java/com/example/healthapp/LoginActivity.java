@@ -96,11 +96,6 @@ public class LoginActivity extends AppCompatActivity  implements NavigationView.
                 startActivity(h);
                 break;
 
-            case R.id.nav_gallery:
-                Intent g = new Intent(LoginActivity.this, sampleActivity.class);
-                startActivity(g);
-                break;
-
             case R.id.nav_login:
                 Intent l = new Intent(LoginActivity.this, LoginActivity.class);
                 startActivity(l);

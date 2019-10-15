@@ -48,5 +48,10 @@
     <string name="sign_in">Sign In</string>
     <string name="sign_up">Sign Up</string>
     <string name="title_activity_settings">SettingsActivity</string>
+    <string name="title_activity_find_results">FindResultsActivity</string>
+    <string name="title_activity_profile">ProfileActivity</string>
+    <string name="title_activity_account">AccountActivity</string>
+    <string name="title_activity_appointment">AppointmentActivity</string>
+    <string name="title_activity_deal">DealActivity</string>
 
 </resources>

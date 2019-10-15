@@ -10,6 +10,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 import android.view.View;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.core.view.GravityCompat;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 
@@ -28,16 +29,24 @@ import android.widget.TextView;
 public class sampleActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private TextView email;
-    private TextView username;
     NavigationView navigationView;
+    private String usernameProvided;
+    private String emailProvided;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sample);
+
         Toolbar toolbar = findViewById(R.id.toolbar_login);
         setSupportActionBar(toolbar);
+
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setTitle(null);
+            actionBar.setElevation(0);
+        }
+
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,6 +55,7 @@ public class sampleActivity extends AppCompatActivity
                         .setAction("Action", null).show();
             }
         });
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view_main);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -60,16 +70,17 @@ public class sampleActivity extends AppCompatActivity
         SharedPreferences sharedPreferences = this.getSharedPreferences("com.example.healthapp",
                 Context.MODE_PRIVATE);
 
-        String usernameProvided = sharedPreferences.getString("username","");
-        String emailProvided = sharedPreferences.getString("email","");
+        this.usernameProvided = sharedPreferences.getString("username","");
+        this.emailProvided = sharedPreferences.getString("email","");
 
-        if (!emailProvided.equals("") && !usernameProvided.equals(""))  {
+        if (emailProvided.equals("") && usernameProvided.equals(""))  {
+        } else {
             View headerView =  navigationView.getHeaderView(0);
-            this.username = headerView.findViewById(R.id.nav_header_title);
-            this.email = headerView.findViewById(R.id.nav_header_subtitle);
+            TextView username = headerView.findViewById(R.id.nav_header_title);
+            TextView email = headerView.findViewById(R.id.nav_header_subtitle);
 
-            this.username.setText(usernameProvided);
-            this.email.setText(emailProvided);
+            username.setText(usernameProvided);
+            email.setText(emailProvided);
         }
 
     }
@@ -117,14 +128,39 @@ public class sampleActivity extends AppCompatActivity
                 startActivity(h);
                 break;
 
-            case R.id.nav_gallery:
-                Intent g = new Intent(sampleActivity.this, sampleActivity.class);
-                startActivity(g);
+
+            case R.id.nav_doctor:
+                Intent d = new Intent(sampleActivity.this, SearchResultsActivity.class);
+                d.putExtra("message", "Doctor");
+                startActivity(d);
+                break;
+
+            case R.id.nav_appointment:
+                Intent a = new Intent(sampleActivity.this, sampleActivity.class);
+                startActivity(a);
+                break;
+
+
+            case R.id.nav_pharmacy:
+                Intent p = new Intent(sampleActivity.this, SearchResultsActivity.class);
+                p.putExtra("message", "Pharmacy");
+                startActivity(p);
+                break;
+
+            case R.id.nav_deals:
+                Intent m = new Intent(sampleActivity.this, sampleActivity.class);
+                startActivity(m);
                 break;
 
             case R.id.nav_login:
-                Intent l = new Intent(sampleActivity.this, LoginActivity.class);
-                startActivity(l);
+                if (!usernameProvided.equals("") && !emailProvided.equals("")) {
+                    Intent l = new Intent(sampleActivity.this, AccountActivity.class);
+                    startActivity(l);
+
+                } else {
+                    Intent l = new Intent(sampleActivity.this, RegisterActivity.class);
+                    startActivity(l);
+                }
                 break;
 
         }
